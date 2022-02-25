@@ -1,0 +1,63 @@
+﻿using System;
+
+namespace KattisBetaAssignment
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+            // Create a string of the input
+            string input = Console.ReadLine();
+            // finding the first occurance after the space (the suit)
+            int space = input.IndexOf(' ');
+            // reading the number of cards from the input before the space and multiplying by 4 since there is 4 cards in a hand
+            int hand = int.Parse(input.Substring(0, space)) * 4;
+            // assigning the suit to a char using the input that is after the space
+            char suit = input[space + 1];
+            // starting the count of the total number of points
+            int totalpoints = 0;
+            // starting for loop
+            for (int x = 0; x < hand; x++)
+            {
+                string s = Console.ReadLine();
+                switch (s[0])
+                {
+                    // assigning the value to A
+                    case 'A':
+                        totalpoints += 11;
+                        break;
+                    // assigning the value to K
+                    case 'K':
+                        totalpoints += 4;
+                        break;
+                    // assigning the value to Q
+                    case 'Q':
+                        totalpoints += 3;
+                        break;
+                    // assigning the value to J
+                    // using an if/else statement because J has different values if the suit is (non)dominant
+                    case 'J':
+                        if (s[1] == suit)
+                            totalpoints += 20;
+                        else
+                            totalpoints += 2;
+                        break;
+                    // assigning the value to T
+                    case 'T':
+                        totalpoints += 10;
+                        break;
+                    // assigning the value to 9
+                    // using an if/else statement because 9 has different values if the suit is (non)dominant
+                    case '9':
+                        if (s[1] == suit)
+                            totalpoints += 14;
+                        break;
+                    default:
+                        break;
+                    // Numbers 7 & 8 from the problem do not need to be in the loop because there values are always 0
+                }
+            }
+            // Console.WriteLine(totalpoints);
+        }
+    }
+}
