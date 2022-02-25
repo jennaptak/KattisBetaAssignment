@@ -57,7 +57,7 @@ namespace KattisBetaAssignment
                     // Numbers 7 & 8 from the problem do not need to be in the loop because there values are always 0
                 }
             }
-            // Console.WriteLine(totalpoints);
+            Console.WriteLine(totalpoints);
         }
     }
 }
